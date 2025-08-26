@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { userId: string } }
-) {
+export async function GET(_req, { params }) {
   return NextResponse.json({
     success: true,
     message: "Scanned coupons fetched",

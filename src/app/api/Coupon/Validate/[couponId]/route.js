@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { couponId: string } }
-) {
+export async function GET(_req, { params }) {
   const id = Number(params.couponId || 0);
   return NextResponse.json({
     success: true,
