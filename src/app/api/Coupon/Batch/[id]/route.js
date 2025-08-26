@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
-) {
-  const id = Number(params.id || 0);
+export async function GET(_req, context) {
+  const { id } = await context.params; // ✅ await params in Next.js App Router
   return NextResponse.json({
     success: true,
     message: "Batch details fetched",
@@ -16,7 +13,7 @@ export async function GET(
         updatedByName: "string",
         createdOn: new Date().toISOString(),
         updatedOn: new Date().toISOString(),
-        id,
+        id: Number(id || 0),
         uniqueId: "string",
         batchId: 0,
         orgAliasName: "string",
