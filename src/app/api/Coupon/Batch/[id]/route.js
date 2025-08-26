@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
-export async function GET(_req, context) {
-  const { id } = await context.params; // ✅ await params in Next.js App Router
+export async function GET(req, {params}) {
+  const { id } = await params; 
   return NextResponse.json({
     success: true,
     message: "Batch details fetched",
